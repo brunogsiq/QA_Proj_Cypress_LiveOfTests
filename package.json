@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "cypress": "^10.11.0",
+    "qa_academy_viverdetestes_session1": "file:",
     "update": "^0.7.4"
   },
   "devDependencies": {
