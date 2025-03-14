@@ -11,7 +11,7 @@ on:
   schedule:
     - cron: '0 8 * * *'  # Roda às 08:00 UTC (ajustar para o fuso horário desejado)
     # HORA QUEBRADA: MINUTO HORA
-    - cron: '40 12 * * *' # Roda às 12:40 UTC 
+    - cron: '30 13 * * *' # Roda às 12:40 UTC 
     - cron: '0 19 * * *' # Roda às 19:00 UTC
 
 jobs:
