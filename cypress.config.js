@@ -1,12 +1,36 @@
-const { defineConfig } = require('cypress')
+//baseUrl: 'https://marvel-qa-cademy.herokuapp.com',
+const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
-  e2e: {
-    // We've imported your old cypress plugins here.
-    // You may want to clean this up later by importing these.
-    setupNodeEvents(on, config) {
-      return require('./cypress/plugins/index.js')(on, config)
-    },
-    baseUrl: 'https://marvel-qa-cademy.herokuapp.com',
-  },
-})
+	viewportWidth: 1300,
+	viewportHeight: 800,
+	video: true,
+	chromeWebSecurity: false,
+
+	reporter: "cypress-mochawesome-reporter",
+	reporterOptions: {
+		reportDir: "cypress/reports/mochawesome",
+		overwrite: true,
+		html: true,
+		json: false,
+		timestamp: "dd-mm-yyyy_HH-MM-ss",
+	},
+
+	e2e: {
+		baseUrl: "https://www.google.com.br",
+		defaultCommandTimeout: 9000,
+		experimentalRunAllSpecs: true,
+		hideXHRInCommandLog: true,
+		specPattern: "cypress/tests/scenes/**/*.cy.js",
+			setupNodeEvents(on, config) {
+				require("cypress-mochawesome-reporter/plugin")(on);
+			},
+	},
+
+	env: {
+		dev: "https://www.seuambiente-dev.com",
+		tst: "https://www.seuambiente-tst.com",
+		hml: "https://www.seuambiente-hml.com",
+		prod: "https://www.seuambiente-prod.com",
+	},
+});
